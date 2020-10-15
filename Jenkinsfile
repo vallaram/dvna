@@ -21,7 +21,7 @@ pipeline {
 
 		stage ('Audit') {
 			steps {
-				sh 'npm audit --json >> ~/jenkins/reports/npm-audit-report'
+				sh 'npm audit --json > ~/reports/npm-audit-report'
 			}
 		}
 
