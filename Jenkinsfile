@@ -21,7 +21,19 @@ pipeline {
 
 		stage ('Audit') {
 			steps {
-				sh 'npm audit --json > npm-audit-report.json'
+				sh 'npm audit --json || echo 0'
+			}
+		}
+
+		stage ("NodeJSScan") {
+			steps {
+				sh 'nodejsscan -d `pwd` --output nodejsscan.report'
+			}
+		}
+
+		stage ("Retire.js") {
+			steps {
+				sh 'retire --path `pwd` --outputpath retire.report --exitwith 0'
 			}
 		}
 
