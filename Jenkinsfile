@@ -21,7 +21,7 @@ pipeline {
 
 		stage ('Audit') {
 			steps {
-				echo '/{JENKINS HOME DIRECTORY}/reports/npm-audit-report'
+				sh 'npm audit --json >> ~/jenkins/reports/npm-audit-report'
 			}
 		}
 
