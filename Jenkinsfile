@@ -19,6 +19,12 @@ pipeline {
             }
         }
 
+		stage ('Audit') {
+			steps {
+				echo '/{JENKINS HOME DIRECTORY}/reports/npm-audit-report'
+			}
+		}
+
     }
 
 }
