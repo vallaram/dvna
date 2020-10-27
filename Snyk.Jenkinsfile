@@ -9,13 +9,13 @@ pipeline {
 		}
                 stage ("Snyk test report"){
                     steps {
-                            sh 'snyk test --json > /var/lib/jenkins/reports/snyk_report.json'
+                            sh '/var/lib/jenkins/reports/zerosnyk.sh test --json > /var/lib/jenkins/reports/snyk_report.json'
 			}
 
 		}
                   stage("Snyk dashboard monitor") {
                        steps {
-                               sh 'snyk monitor'
+                               sh '/var/lib/jenkins/reports/zerosnyk.sh monitor'
                        }
                 }		
 
