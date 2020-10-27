@@ -1,0 +1,580 @@
+    1  cd
+    2  sudo apt install openjdk-11-jdk
+    3  cd
+    4  sudo apt install openjdk-11-jdk
+    5  sudo apt install openjdk-11-jre
+    6  wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+    7  sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+    8  sudo apt update
+    9  sudo apt install jenkins
+   10  sudo systemctl enable --now jenkins
+   11  sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+   12  curl ifconfig.me
+   13  clear
+   14  ssh-keygen -t rsa
+   15  ls
+   16  cd ./ssh
+   17  ls -l
+   18  clear
+   19  ls -a
+   20  cd .ssh
+   21  ls
+   22  cat id_rsa.pub
+   23  cd ..
+   24  sudo tmux detach
+   25  git clone git@github.com:vallaram/vulnado.git
+   26  git clone git@github.com:vallaram/xrm-api.git
+   27  clear
+   28  ls
+   29  su jenkins
+   30  cd
+   31  cd xrm-api/
+   32  vim Owasp.Jenkinsfile 
+   33  git status
+   34  git add .
+   35  git commit -m "Owasp depcheck jenkinsfile"
+   36  git config --global user.email "vallar4327@gmail.com"
+   37  git config --global user.name "vallaram"
+   38  git commit -m "Owasp depcheck jenkinsfile"
+   39  git push origin master
+   40  clear
+   41  ls
+   42  cat Jenkinsfile 
+   43  cp Jenkinsfile Nodejs.Jenkinsfile
+   44  vim Nodejs.Jenkinsfile 
+   45  cat Nodejs.Jenkinsfile 
+   46  cd
+   47  cd xrm-api/
+   48  ls
+   49  git status
+   50  cat Nodejs.Jenkinsfile 
+   51  git add .
+   52  git commit -m "Nodejsscan pipeline"
+   53  git push origin master
+   54  clear
+   55  cd /var/lib/jenkins/reports
+   56  ls
+   57  cat owasp.json
+   58  clear
+   59  cd
+   60  ls
+   61  cd xrm-api/
+   62  ls
+   63  cp Jenkinsfile Audit.Jenkinsfile
+   64  vim Audit.Jenkinsfile
+   65  cd
+   66  cd xrm-api/
+   67  sudo npm i -g eslint
+   68  cd 
+   69  cd xrm-api/
+   70  ls
+   71  eslint --init
+   72  cat Audit.Jenkinsfile 
+   73  git status
+   74  git add .
+   75  git commit -m "audit pipeline"
+   76  git push origin master
+   77  cd /var/lib/jenkins/reports/
+   78  ls
+   79  vim nodejsscan_report.json 
+   80  cd
+   81  cd /var/lib/jenkins/reports/
+   82  ls
+   83  vim audit_report.json 
+   84  ls
+   85  cd
+   86  cd xrm-api/
+   87  ls
+   88  cd
+   89  cd xrm-api/
+   90  ls
+   91  mv class* devsecops/
+   92  ls
+   93  git status
+   94  cd devsecops/
+   95  vim class4_history.txt 
+   96  history
+   97  history >> class4_history.txt 
+   98  cd
+   99  cd xrm-api/devsecops/
+  100  history >> class4_history.txt 
+  101  vim class4_history.txt 
+  102  curl -sSL get.docker.com
+  103  curl -sSL get.docker.com | sh
+  104  sudo docker --version
+  105  sudo usermod -aG docker ram
+  106  docker --version
+  107  cd
+  108  docker run -d -p 9000:9000 -p 9092:9092 --name sonarqube sonarqube
+  109  docker ps
+  110  sudo apt-get install maven
+  111  ls
+  112  cd
+  113  ls
+  114  cd xrm-api/
+  115  clear
+  116  ls
+  117  cat Jenkinsfile
+  118  clear
+  119  vi Owasp.Jenkinsfile
+  120  su jenkins
+  121  su -
+  122  cd .ssh
+  123  sudo cd .ssh
+  124  cd
+  125  cd .ssh
+  126  ls
+  127  cat id_rsa.pub
+  128  cd ..
+  129  tmux attach -t testclass4
+  130  sudo tmux attach -t testclass4
+  131  cd
+  132  ls
+  133  cd vulnado/
+  134  git pull origin master
+  135  ls
+  136  mvn sonar:sonar   -Dsonar.projectKey=project-vulnado   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=ea36fcea4abf11f4a8ce92fb786f348e70e84958
+  137  ls
+  138  ./mvnw sonar:sonar   -Dsonar.projectKey=project-vulnado   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=ea36fcea4abf11f4a8ce92fb786f348e70e84958
+  139  ls
+  140  vim pom.xml 
+  141  sudo apt install maven
+  142  vim pom.xml 
+  143  mvn --version
+  144  mvn clean install sonar:sonar
+  145  echo $?
+  146  mvn -fn clean install sonar:sonar
+  147  ./mvnw sonar:sonar   -Dsonar.projectKey=project-vulnado   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=ea36fcea4abf11f4a8ce92fb786f348e70e84958
+  148  ls
+  149  cd src
+  150  ls
+  151  cd main
+  152  ls
+  153  cd java
+  154  ls
+  155  cd com
+  156  ls
+  157  cd scalesec/
+  158  ls
+  159  cd vulnado/
+  160  ls
+  161  vim Cowsay.java
+  162  cd 
+  163  cd vulnado/
+  164  ./mvnw sonar:sonar   -Dsonar.projectKey=project-vulnado   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=ea36fcea4abf11f4a8ce92fb786f348e70e84958
+  165  mvn -fn clean install sonar:sonar
+  166  echo $?
+  167  ./mvnw sonar:sonar   -Dsonar.projectKey=project-vulnado   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=ea36fcea4abf11f4a8ce92fb786f348e70e84958
+  168  ./mvnw sonar:sonar   -Dsonar.projectKey=project-vulnado   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=
+  169  cd ..
+  170  git clone git@github.com:vallaram/dvpwa.git
+  171  cd dvpwa/
+  172  clear
+  173  ls
+  174  vim requirements.txt 
+  175  cd
+  176  mkdir sample
+  177  cd sample/
+  178  npm init
+  179  ls
+  180  cd
+  181  cd dvpwa/
+  182  ls
+  183  pip3 install pipreqs
+  184  mv requirements.txt requirements.txt.bak
+  185  ls
+  186  pipreqs .
+  187  vim ~/.bashrc
+  188  source ~/.bashrc
+  189  pipreqs .
+  190  vim requirements.txt
+  191  rm requirements.txt
+  192  mv requirements.txt.bak requirements.txt
+  193  ls
+  194  history > ../class5.txt
+  195  ls
+  196  dpkg --print-architecture
+  197  cd ..
+  198  wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
+  199  ls
+  200  unzip sonar-scanner-cli-4.5.0.2216-linux.zip
+  201  clear
+  202  ls
+  203  cd sonar-scanner-4.5.0.2216-linux/
+  204  ls
+  205  cd bin
+  206  ls
+  207  ./sonar-scanner --version
+  208  cd
+  209  cd dvpwa/
+  210  ls
+  211  ~/sonar-scanner-4.5.0.2216-linux/bin/sonar-scanner  sonar-scanner   -Dsonar.projectKey=project-dvpwa   -Dsonar.sources=.   -Dsonar.host.url=http://178.62.36.5:9000 \
+  212  ~/sonar-scanner-4.5.0.2216-linux/bin/sonar-scanner -Dsonar.projectKey=project-dvpwa   -Dsonar.sources=.   -Dsonar.host.url=http://178.62.36.5:9000 \
+  213  ~/sonar-scanner-4.5.0.2216-linux/bin/sonar-scanner -Dsonar.projectKey=project-dvpwa   -Dsonar.sources=.   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=6e118d0a1c7005a175671a91267eb720eeac7aa2
+  214  clear
+  215  cd ..
+  216  ls
+  217  git clone git@github.com:vallaram/dvna.git
+  218  cd dvna
+  219  ../scanner-4.5.0.2216-linux/bin/sonar-scanner  -Dsonar.projectKey=test-dvnanodejs   -Dsonar.sources=.   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=45b63631fe1181a4abc6a36340015e799c9d81b2
+  220  ../scanner-4.5.0.2216-linux/bin/sonar-scanner.sh  -Dsonar.projectKey=test-dvnanodejs   -Dsonar.sources=.   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=45b63631fe1181a4abc6a36340015e799c9d81b2
+  221  cd ../scanner-4.5.0.2216-linux/bin/
+  222  cd ../scanner-4.5.0.2216-linux
+  223  ls ..
+  224  ../sonar-scanner-4.5.0.2216-linux/bin/sonar-scanner  -Dsonar.projectKey=test-dvnanodejs   -Dsonar.sources=.   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=45b63631fe1181a4abc6a36340015e799c9d81b2
+  225  clear
+  226  cd ../vulnado/
+  227  ls
+  228  vim Jenkinsfile
+  229  git status
+  230  ls
+  231  vim src/main/java/com/scalesec/vulnado/Cowsay.java
+  232  git status
+  233  vim pom.xml 
+  234  rm src/main/java/com/scalesec/vulnado/:
+  235  git add .
+  236  git commit -m "sonar scanner for vulnado"
+  237  git push origin master
+  238  sudo systemctl status jenkins
+  239  sudo systemctl restart jenkins
+  240  htop
+  241  history >> ../class5.txt 
+  242  cd
+  243  ls
+  244  cd vulnado/
+  245  ls
+  246  cd ../xrm-api/
+  247  cd devsecops/
+  248  ls
+  249  cp ../../class5.txt .
+  250  ls
+  251  cd ..
+  252  git add .
+  253  git commit -m "class5"
+  254  cd devsecops/
+  255  vim eslint 
+  256  mv eslint class3_history.txt
+  257  cd ..
+  258  git add .
+  259  git commit -m "class 3 and 5 history"
+  260  git push origin master
+  261  htop
+  262  sudo poweroff
+  263  exit
+  264  cd
+  265  clear
+  266  cat .ssh
+  267  cd .ssh
+  268  cd..
+  269  cd ..
+  270  sudo apt-get install ansible2
+  271  sudo apt-get install ansible
+  272  ansible --version
+  273  su - root
+  274  cd ../../..
+  275  ls
+  276  cd
+  277  ls
+  278  su jenkins
+  279  exit
+  280  clear
+  281  cd ../../..
+  282  ls
+  283  cd
+  284  ls
+  285  cat class5.txt
+  286  docker ps -a
+  287  docker ps -aq
+  288  docker run -d -p 9000:9000 -p 9092:9092 --name sonarqube sonarqube
+  289  docker container run 386675034cca
+  290  docker container run --name sonarqube 386675034cca
+  291  docker run 386675034cca
+  292  su jenkins
+  293  cd
+  294  clear
+  295  docker ps -a
+  296  docker run -d 386675034cca
+  297  docker container run sonarqube
+  298  cd
+  299  clear
+  300  docker ps -a
+  301  docker container run -d sonarqube
+  302  docker ps -a
+  303  docker rm -f `docker ps -aq`
+  304  docker ps -aq
+  305  docker ps -a
+  306  clear
+  307  poweroff
+  308  sudo poweroff
+  309  cd
+  310  cd NewPipe/
+  311  ls
+  312  clear
+  313  ./gradlew sonarqube   -Dsonar.projectKey=test-gradle   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=95982a13129ca79a52f51530203ec11c7f15b283
+  314  echo $PATH
+  315  cd ..
+  316  vim .bashrc
+  317  echo $PATH
+  318  source ~/.bashrc
+  319  vim .bashrc
+  320  source ~/.bashrc
+  321  vim .bashrc
+  322  source ~/.bashrc
+  323  vim .bashrc
+  324  source ~/.bashrc
+  325  cd NewPipe/
+  326  ./gradlew sonarqube   -Dsonar.projectKey=test-gradle   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=95982a13129ca79a52f51530203ec11c7f15b283
+  327  vim .bashrc
+  328  cd ..
+  329  vim .bashrc
+  330  source ~/.bashrc
+  331  echo $PATH
+  332  clear
+  333  exit
+  334  cd
+  335  ls
+  336  pwd
+  337  cd Affordable-AIO-Bot/
+  338  ls
+  339  cd ..
+  340  clear
+  341  git clone git@github.com:L04DB4L4NC3R/chutkula-bot.git
+  342  ls
+  343  wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
+  344  ls
+  345  cd chutkula-bot/
+  346  ls
+  347  clear
+  348  cd ..
+  349  ls
+  350  cd chutkula-bot/
+  351  ../scanner-4.5.0.2216-linux/bin/sonar-scanner -Dsonar.projectKey=test-golang   -Dsonar.sources=.   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=af22d3af1dd741ad2524e112a1ab281cc54aef81
+  352  ../sonar-scanner-4.5.0.2216-linux/bin/sonar-scanner -Dsonar.projectKey=test-golang   -Dsonar.sources=.   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=af22d3af1dd741ad2524e112a1ab281cc54aef81
+  353  cd ..
+  354  clear
+  355  git clone git@github.com:TeamNewPipe/NewPipe.git
+  356  ls
+  357  cd NewPipe/
+  358  ls
+  359  vim build.gradle
+  360  git status
+  361  git add .
+  362  git commit -m "added org.sonar to build.gradle"
+  363  git push origin master
+  364  ls
+  365  vim build.gradle 
+  366  git push origin master
+  367  git status
+  368  cd ..
+  369  rmdir NewPipe/
+  370  rmdir -r NewPipe/
+  371  rmdir -R NewPipe/
+  372  rmdir --help
+  373  rm -R NewPipe/
+  374  y
+  375  clear
+  376  ls
+  377  git clone git@github.com:vallaram/NewPipe.git
+  378  git branch
+  379  cd NewPipe/
+  380  git branch
+  381  git checkout master
+  382  git branch
+  383  vim build.gradle
+  384  git add .
+  385  git commit -m "added the file"
+  386  git push origin master
+  387  ls
+  388  vim gradle.properties
+  389  git add .
+  390  git commit -m "updated the properties file"
+  391  git push origin master
+  392  clear
+  393  git status
+  394  ls
+  395  ls -la
+  396  cd .gradle
+  397  cd gradle
+  398  ls
+  399  cd ..
+  400  clear
+  401  ls
+  402  ./gradlew sonarqube   -Dsonar.projectKey=test-gradle   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=95982a13129ca79a52f51530203ec11c7f15b283
+  403  cat build.gradle
+  404  vim build.gradle
+  405  gradle sonarqube
+  406  sudo apt  install gradle
+  407  gradle sonarqube
+  408  ls
+  409  vim build.gradle
+  410  git add .
+  411  git commit -m "fix"
+  412  git push origin master
+  413  gradle sonarqube
+  414  vim build.gradle
+  415  gradle sonarqube
+  416  vim /home/ram/.gradle/daemon/4.4.1/gradle/wrapper/
+  417  cd /home/ram/.gradle/daemon/4.4.1/gradle/wrapper/
+  418  cd /home/ram/.gradle/daemon/4.4.1/gradle
+  419  gradle wrapper --gradle-version 5.6.4
+  420  vim build.gradle
+  421  gradle sonarqube
+  422  ls
+  423  cd gradle
+  424  ls
+  425  cd wrapper
+  426  ls
+  427  vim gradle-wrapper.properties
+  428  cd ../..
+  429  vim build.gradle
+  430  clear
+  431  gradle sonarqube
+  432  cat gradle/wrapper/gradle-wrapper.properties
+  433  vim gradle/wrapper/gradle-wrapper.properties
+  434  gradle sonarqube
+  435  vim build.gradle
+  436  vim gradle/wrapper/gradle-wrapper.properties
+  437  vim build.gradle
+  438  gradle sonarqube
+  439  ./gradlew sonarqube   -Dsonar.projectKey=test-gradle   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=95982a13129ca79a52f51530203ec11c7f15b283
+  440  ls
+  441  vim build.gradle
+  442  flutter clean
+  443  sudo snap install flutter
+  444  sudo snap install flutter --classic
+  445  flutter clean
+  446  clear
+  447  ./gradlew sonarqube   -Dsonar.projectKey=test-gradle   -Dsonar.host.url=http://178.62.36.5:9000   -Dsonar.login=95982a13129ca79a52f51530203ec11c7f15b283
+  448  echo $PATH
+  449  cd..
+  450  cd ..
+  451  vim ~.bashrc
+  452  ls -la
+  453  java --version
+  454  echo $JAVA_HOME
+  455  type -p java
+  456  cd /usr/bin/java
+  457  su root
+  458  cd
+  459  clear
+  460  ls
+  461  docker --version
+  462  docker run -d -p 9000:9000 -p 9092:9092 --name sonarqube sonarqube
+  463  git clone git@github.com:YuLin12345/Affordable-AIO-Bot.git
+  464  ls
+  465  cd Affordable-AIO-Bot/
+  466  cat ~/.bashrc
+  467  clear
+  468  cd ..
+  469  dotnet tool install --global dotnet-sonarscanner
+  470  sudo snap install dotnet-sdk
+  471  sudo snap install dotnet-sdk --classic
+  472  sudo dotnet tool install --global dotnet-sonarscanner
+  473  sudo dotnet tool install --global dotnet-sonarscanner --version 4.8.0
+  474  ls
+  475  su root
+  476  su - root
+  477  cd
+  478  clear
+  479  ls
+  480  cd Affordable-AIO-Bot/
+  481  ls
+  482  cd..
+  483  cd ..
+  484  pwd
+  485  su root
+  486  cd
+  487  clear
+  488  ls
+  489  ls -la
+  490  cat .bashrc
+  491  vim .bashrc
+  492  source ~/.bashrc
+  493  ls
+  494  cd Affordable-AIO-Bot/
+  495  clear
+  496  ls
+  497  vim .bashrc
+  498  cd ..
+  499  cat .bashrc
+  500  su root
+  501  cd
+  502  echo $PATH
+  503  su jenkins
+  504  exit
+  505  cd
+  506  cd xrm-api/
+  507  vim Jenkinsfile 
+  508  touch SonarQube.Jenkinsfile
+  509  vim Jenkinsfile 
+  510  vim SonarQube.Jenkinsfile 
+  511  git add .
+  512  git commit -m "sonarscanner stage added"
+  513  git push origin master
+  514  vim SonarQube.Jenkinsfile 
+  515  git add .
+  516  git commit -m "scannerhome added"
+  517  git push origin master
+  518  ls
+  519  vim sonar-project.properties
+  520  git add .
+  521  git commit -m "aded projectKey"
+  522  git push origin master
+  523  vim SonarQube.Jenkinsfile 
+  524  vim sonar-project.properties 
+  525  ls
+  526  cd
+  527  sudo npm install -g snyk
+  528  snyk auth
+  529  snyk test
+  530  cd xrm-api/
+  531  ls
+  532  snyk auth 1ecb298e-b334-4b22-8ed3-ff0ffd45e99c
+  533  cd ..
+  534  ls
+  535  snyk test
+  536  cd..
+  537  cd ../xrm-api/
+  538  snyk test
+  539  cd  ../
+  540  ls
+  541  snyk test
+  542  npm i
+  543  snyk test
+  544  snyk test --json > ../snyk_report.json
+  545  vim ../snyk_report.json 
+  546  snyk monitor
+  547  ls
+  548  vim Snyk.Jenkinsfile
+  549  cp ../xrm-api/Jenkinsfile .
+  550  vim Jenkinsfile 
+  551  vim Snyk.Jenkinsfile 
+  552  git add .
+  553  git commit -m "Snyk integration"
+  554  vim Snyk.Jenkinsfile 
+  555  git add .
+  556  git commit -am "snyk auth removed"
+  557  git push origin master
+  558  cd
+  559  cd dvna/
+  560  snyk test
+  561  echo $?
+  562  snyk --help
+  563  cd
+  564  cd dv
+  565  cd dvna
+  566  vim Snyk.Jenkinsfile 
+  567  git status
+  568  git add .
+  569  git commit -m "snyk wrapper"
+  570  git push origin master
+  571  htop
+  572  cd
+  573  cd dvna/
+  574  ls
+  575  vim test.js
+  576  git add .
+  577  git commit -m "created a test file"
+  578  git push origin master
+  579  history > class6
+  580  history > class6.txt
