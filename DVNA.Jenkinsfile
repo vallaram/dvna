@@ -3,7 +3,9 @@ pipeline {
 
 	stages {
 		stage("Testing Phase of DVNA") {
+                       steps {
 			sh 'ssh root@178.62.36.148 docker run --name dvna -p 9090:9090 -d appsecco/dvna:sqlite'
+                       }
 		}
 		stage("OWASP ZAP Analysis") {
 			steps {
@@ -11,7 +13,9 @@ pipeline {
 			}
 		}
 		stage("Close DVNA") {
-			sh 'ssh root@178.62.36.148 docker rm -f dvna'
+                        steps {
+			  sh 'ssh root@178.62.36.148 docker rm -f dvna'
+                        }
 		}
 	}
 }
