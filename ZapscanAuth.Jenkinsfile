@@ -9,7 +9,7 @@ pipeline {
 		}
 		stage("OWASP ZAP Analysis") {
 			steps {
-				sh 'python3 /var/lib/jenkins/reports/owasp-zap--auth-scan.py'
+				sh 'python3 /var/lib/jenkins/reports/owasp-zap-auth-scan.py'
 			}
 		}
 		stage("Close DVNA") {
