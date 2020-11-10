@@ -17,7 +17,8 @@ pipeline {
 		stage("Close DVNA") {
                         steps {
 			  sh 'ssh root@178.62.36.148 docker rm -f dvna'
+                        }
                 }
-		
+	    	
         }
    }
