@@ -10,7 +10,7 @@ pipeline {
 
                 stage("W3af Full Scan Analysis") {
 			steps {
-				sh 'docker run -it andresriancho/w3af `./w3af_console -s /var/lib/jenkins/reports/full.w3af`'
+				sh 'docker run -it andresriancho/w3af ./w3af_console -s /var/lib/jenkins/reports/full.w3af'
 			}
 		}
 
