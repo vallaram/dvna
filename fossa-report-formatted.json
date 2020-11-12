@@ -1,0 +1,128 @@
+[
+  {
+    "Name": "package",
+    "Type": "commonjspackage",
+    "Manifest": ".scannerwork/css-bundle/package",
+    "Build": {
+      "Artifact": "default",
+      "Context": null,
+      "Succeeded": true,
+      "Imports": [
+        "npm+run-node$"
+      ],
+      "Dependencies": [
+        {
+          "locator": "npm+run-node$"
+        }
+      ]
+    }
+  },
+  {
+    "Name": "package",
+    "Type": "commonjspackage",
+    "Manifest": ".scannerwork/css-bundle/package",
+    "Build": {
+      "Artifact": "default",
+      "Context": null,
+      "Succeeded": true,
+      "Imports": [
+        "npm+run-node$"
+      ],
+      "Dependencies": [
+        {
+          "locator": "npm+run-node$"
+        }
+      ]
+    }
+  },
+  {
+    "Name": ".",
+    "Type": "commonjspackage",
+    "Manifest": ".",
+    "Build": {
+      "Artifact": "default",
+      "Context": null,
+      "Succeeded": true,
+      "Imports": [
+        "npm+csurf$",
+        "npm+express-flash$",
+        "npm+libxmljs$",
+        "npm+winston$",
+        "npm+bcrypt$",
+        "npm+flash$",
+        "npm+mathjs$",
+        "npm+md5$",
+        "npm+morgan$",
+        "npm+sequelize$",
+        "npm+express-session$",
+        "npm+express$",
+        "npm+express-fileupload$",
+        "npm+mysql2$",
+        "npm+node-serialize$",
+        "npm+passport-local$",
+        "npm+ejs$",
+        "npm+x-xss-protection$",
+        "npm+passport$"
+      ],
+      "Dependencies": [
+        {
+          "locator": "npm+express-flash$"
+        },
+        {
+          "locator": "npm+md5$"
+        },
+        {
+          "locator": "npm+morgan$"
+        },
+        {
+          "locator": "npm+mathjs$"
+        },
+        {
+          "locator": "npm+x-xss-protection$"
+        },
+        {
+          "locator": "npm+libxmljs$"
+        },
+        {
+          "locator": "npm+bcrypt$"
+        },
+        {
+          "locator": "npm+sequelize$"
+        },
+        {
+          "locator": "npm+express-session$"
+        },
+        {
+          "locator": "npm+express-fileupload$"
+        },
+        {
+          "locator": "npm+winston$"
+        },
+        {
+          "locator": "npm+csurf$"
+        },
+        {
+          "locator": "npm+mysql2$"
+        },
+        {
+          "locator": "npm+passport-local$"
+        },
+        {
+          "locator": "npm+ejs$"
+        },
+        {
+          "locator": "npm+flash$"
+        },
+        {
+          "locator": "npm+node-serialize$"
+        },
+        {
+          "locator": "npm+express$"
+        },
+        {
+          "locator": "npm+passport$"
+        }
+      ]
+    }
+  }
+]

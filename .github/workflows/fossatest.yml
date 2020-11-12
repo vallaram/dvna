@@ -1,0 +1,18 @@
+me: main action
+
+on:
+        push
+
+jobs:
+        test1:
+                name: The first test
+                runs-on: ubuntu-latest
+                steps:
+                        - name: Checkout code
+                          uses: actions/checkout@v2
+                        - run: ls
+                        - name: Fossa Action
+                          uses: fossa-contrib/fossa-action@v1.1.2
+                          with:
+                                fossa-api-key: ${{ secrets.FOSSA_API_KEY }}
+                                github-token: ${{ secrets.FOSSATOKEN }}
