@@ -1,4 +1,4 @@
-me: main action
+name: main action
 
 on:
         push
